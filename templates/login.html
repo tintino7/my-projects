@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block login %}
+<div class="navi">
+    <div>        
+      <a class="nav-link active" aria-current="page" >Recipe finder</a>   
+</div>
+<div >   
+      <a class="nav-link" href="/register">Register</a>   
+</div>     
+</div>   
+    
+{% endblock %}
+{% block quote %}
+    <p>Nothing bring people together like food</p>
+{% endblock %}
+
+{% block main %}
+    <div style="text-align: center; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size: medium; margin-bottom: 1%; color: rgb(226, 25, 25);">{{ message }}</div>
+    <form action="/login" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus  id="username" name="username" placeholder="Username" type="text" required>
+        </div>
+        <div class="mb-3">
+            <input  id="password" name="password" placeholder="Password" type="password" required>
+        </div>
+        <button type="submit">Log In</button>
+    </form>
+{% endblock %}

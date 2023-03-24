@@ -1,0 +1,22 @@
+{% extends "layout1.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block indexquote %}
+<div class="bookmark">
+<ul>
+
+    {% for bookmark in bookmarked %}
+    <li class="listitem">{{ bookmark["mealname"] }}</li>
+    <form action="/bookmark" method="post">
+        <input type="hidden" name="mealid" value="{{ bookmark['mealid'] }}">
+        <button  type="submit">Remove</button>
+    </form>
+    
+    {% endfor %}
+    
+</ul>
+</div>
+{% endblock %}

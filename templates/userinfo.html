@@ -1,0 +1,38 @@
+{% extends "layout1.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block indexquote %}
+<div class="searchbox">
+<div class="searchquote">
+    <p>"People who love to eat are always the best people."</p>
+
+</div>
+</div>
+
+<div class="userinfo">
+    <div class="username">
+        <div>
+            <a href="#" style="text-decoration: none; color:#d57bf6 ;"><img src="static/user.png" style="width: 30px; height: 30px; margin-right: 10px;">{{ info[0]['username']}} </a>
+        </div>
+        
+         
+    </div">
+    <hr style="margin-left: 5%; width: 35%;">
+    <div class="useritem">
+        <a href="/change_password" style="text-decoration: none; color:#d57bf6 ;"><img src="static/switch.png" style="width: 30px; height: 30px; margin-right: 10px;">Change password</a>
+    </div>
+    <hr style="margin-left: 5%; width: 35%;">
+    
+    
+    <div class="useritem">
+     <a href="/logout" style="text-decoration: none; color:#d57bf6 ;"><img src="static/switch.png" style="width: 30px; height: 30px; margin-right: 10px;">Logout</a>
+    </div>
+
+</div>
+
+
+
+{% endblock %}

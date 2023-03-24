@@ -1,0 +1,111 @@
+{% extends "layout1.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block indexquote %}
+
+<div class="searchbox">
+  <div class="searchquote">
+    <P>“Food brings people together on many different levels. It’s nourishment of the soul and body; it’s truly love.”</P>
+  </div>
+  <div class="searchmeal">
+    <form action="/" method="post">  
+      <div class="input-group mb-3"> 
+        <input type="text" class="form-control" name="ingredient" autocomplete="off" placeholder="Search by ingrediant" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+      </div>
+      <button type="submit" class="btn">Search</button>
+    </form>
+  </div>  
+</div>
+
+
+
+
+<div style="margin-left: 5%; color: azure;">
+  <h4 class="searchquote">Saved recipies</h4>
+</div>
+
+
+<div class="cardquoted">
+
+  {% for meal in meals %}
+
+  <div class="card bg-dark" style="width: 25rem;">
+    <img src="{{ meal['img'] }}" class="card-img-top" alt="meal image">
+    <div class="card-body">
+      <h5 class="card-title">{{ meal["name"] }}</h5>
+      
+      <p class="card-text"></p>
+      
+      <button type="button" class="btn" id="{{ meal['id'] }}" data-toggle="modal" data-target="#dynamicModal" onclick="loadDynamicContent(this.id)">
+        View recipe
+      </button>
+    </div>
+  </div>
+
+ {% endfor %}
+
+
+
+
+
+  
+
+  
+  <div class="modal fade" id="dynamicModal" tabindex="-1" role="dialog" aria-labelledby="dynamicModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content bg-dark">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitle">Modal Title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div>
+              <img src="" id="modalimg" style="width: 100%; height: 15%;">
+            </div>
+            <div class="modal-body" id="modalBody">
+            
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn" data-dismiss="modal">Close</button>
+                <a id="modallink" href=""><button type="button" class="btn">View recipe on  You tube</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+  
+
+  
+
+</div>
+
+<script>
+  function loadDynamicContent(id) {
+    // Retrieve the input data from the form
+    
+    const data = {"name": id};
+    // Send an AJAX POST request to the Flask route with the data
+    fetch('/get_dynamic_content', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+        
+    })
+        .then(response => response.json())
+        .then(dynamicContent => {
+         
+            // Update the modal title and body with the received data
+            document.getElementById('modalTitle').innerHTML = dynamicContent.title;
+            document.getElementById('modalBody').innerHTML = dynamicContent.body;    
+            document.getElementById('modalimg').src = dynamicContent.img;
+            document.getElementById('modallink').href = dynamicContent.yt;
+        })
+        .catch(error => console.error(error));
+}
+</script>
+
+{% endblock %}  
