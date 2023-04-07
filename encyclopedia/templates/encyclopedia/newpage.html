@@ -1,0 +1,19 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+
+<h4 style="color: rgb(198, 35, 35);">{{ message }}</h4>
+<form action="{% url 'new_page' %}" method="POST">
+    <div class="new_page_form">
+        {% csrf_token %}
+        {{ new_page_form }}
+    </div>
+        <input type="submit" style="margin: 10px 0px 0px 25px;">
+</form>
+    
+
+{% endblock %}
