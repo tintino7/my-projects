@@ -1,0 +1,97 @@
+{% extends "auctions/layout.html" %}
+
+
+{% block body %}
+<div class="listing-head">
+<div style="display: flex;">
+    <h2 style="margin: 20px 0px 10px 20px; font-family: Arial, Helvetica, sans-serif; color: rgb(26, 3, 48);">Listing : {{ items.title }}</h2>
+    {% if watchlist %}
+    
+  <a class="anker-red" style="margin: 20px 0px 10px 100px;" href="{% url 'remove_watchlist' items.id %}">Remove from watchlist</a>
+   
+    {% else %}
+    
+    <a class="anker-blue" style="margin: 20px 0px 10px 100px;" href="{% url 'add_watchlist' items.id %}">Watch list</a>
+    
+    {% endif %}
+
+    
+
+
+
+    
+</div>
+<hr style="margin-right: 30%;">
+<div class="image-area" style="display: flex;">
+<img src="{{ items.image_url }}", class="listing-img", alt="no image">
+<div  style="margin: 10px 0px 10px 50px;">
+    <ul style="list-style-type: none;">
+        <li><h4>Details:</h4></li>
+        <ul style="list-style-type: none;">
+            <li><h6>Category : {{ items.category }}</h6></li>
+            <li><h6>Owner : {{ items.owner }}</h6></li>
+            {% if items.owner == request.user and items.active == True %}
+            <a class="anker-green"  href="{% url 'close_bid' items.id %}">Close bid</a>
+            {% elif items.owner == request.user and items.active == False %}
+            <h3 style="color: rgb(6, 124, 28);">You closed the bid and <span style="color: blueviolet;">{{ winner.user }}</span> won the auction</h3>
+            {% elif items.owner != request.user and items.active == False and winner.user != request.user %}
+            <h3 style="color: rgb(221, 22, 38);">Closed by the owner</h3>
+            {% elif winner.user == request.user and items.active == False%}
+            <h3 style="color: rgb(14, 196, 23);">You won the auction.</h3>
+            
+            {% endif %}
+
+
+
+        </ul>
+    </ul>
+    
+</div>
+</div>
+<hr style="margin-right: 30%;">
+<div class="description">
+    
+    <h5>Description : {{ items.description }}</h5>
+    <hr>
+</div>
+<div>
+    
+    <h6 class="bid"  style="margin: 20px 0px px 0px; ">Starting bid | <span style="color: rgb(173, 7, 250);">{{ items.starting_bid }}</span> &#36;</h6>
+    <h6 class="bid" style="margin: 20px 0px 20px 0px;">Highest bid | <span style="color: rgb(222, 3, 251);">{{ highest_bid }} </span> &#36;</h6>
+</div>
+<span style="margin-top: 5px; color: rgb(223, 30, 30);">{{ message }}</span>
+<div class="form-item">
+
+    {% if items.active == True %}
+    <form action="{% url 'post_listing' items.id %}" method="post">
+        <input type="number" name="bid" placeholder="Bid">
+        <div class="form-bid">
+            {% csrf_token %}
+            <input class="button-bid" type="submit" value="Bid">
+            </div>
+    </form>
+    {% endif %}
+    <span style="margin-top: 5px;">{{ total_bids }} bid(s) has been placed so far. {{ new_message}}</span>
+    
+</div>
+<div class="command-area">
+<ul style="list-style-type: none;">
+    <h3 >Commends</h3>
+    <form action="{% url 'add_comment' items.id %}", method="post">
+        {% csrf_token %}
+        <input type="text" name="commend" placeholder="Add a commend" autocomplete="off">
+        <button type="submit" >Submit</button>
+    </form>
+    <hr>
+    {% for command in commands %}
+    <li>   | <span style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande'; color: blueviolet;">{{ command.user }}</span> | {{ command.command }}</li>
+    <hr>
+    {% empty %}
+    <li>No commends</li>
+    {% endfor%}
+</ul>
+
+</div>
+
+</div>
+{% endblock %}

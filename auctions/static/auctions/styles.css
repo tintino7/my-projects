@@ -1,0 +1,214 @@
+
+
+.listing-area{
+    margin: 20px 0px 10px 25%;
+    display: grid;
+    grid-template-rows: 80%;
+    
+    
+}
+.listing-item{
+    margin: 0px 0px 10px 0px;
+    border-radius: 10px;  
+}
+
+.listing-label{
+    
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#image{
+    width: 50%;
+}
+
+.listing-area > input{
+    
+    width: 40%;
+    border-radius: 7px;
+    padding: 5px;
+    border: 1px solid rgb(145, 140, 140);
+}
+textarea{
+    padding: 10px;
+    border-radius: 10px;
+}
+.listing-area > input:focus, .listing-area > textarea:focus{
+    outline: none;
+}
+
+
+.navbar{
+    display: flex;
+    background: linear-gradient(to bottom, #6fceee 0%, #e5eef0 100%);
+    margin-bottom: 2%;
+}
+.nav-item > a{
+    color: rgb(22, 22, 22);
+    font-size: large;
+    font-weight: 500;
+}
+
+
+
+button{
+    margin: 20px 0px 0px 0px;
+    border: 1px solid rgb(11, 126, 227);
+    border-radius: 10px;
+    background-color: rgb(11, 126, 227);
+    color: rgb(255, 255, 255);
+    padding: 2px 8px 2px 8px;
+    
+}
+
+.active-cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 2em;   
+}
+.card{
+    background-color: rgb(167, 204, 222); 
+    border: 1px solid rgb(238, 236, 236); 
+    border-radius: 10px;
+}
+.card:hover{
+    box-shadow: 0px 0px 2px 2px rgb(238, 236, 236);
+    
+}
+
+
+
+.login-area{
+    display: grid;
+    justify-content: center;
+}
+
+.form-head{
+    margin: 10px 0px 15px 30px;
+}
+
+.form-area{
+    margin: 5px 0px 20px 10px;
+}
+
+.form-item{
+    margin: 0px 0px 10px 0px;
+    
+}
+
+.button{
+   
+    margin: 0px 0px 0px 35%;
+    border: 1px solid rgb(11, 126, 227);
+    border-radius: 10px;
+    background-color: rgb(11, 126, 227);
+    color: rgb(255, 255, 255);
+    padding: 5px 8px 5px 8px;
+}
+
+
+
+.listing-head{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-left: 10%;
+}
+
+.image-area{
+    width: 90%;
+    height: 400px;
+}
+.listing-img{
+    width: 50%;
+    height: 100%;
+
+}
+
+.bid{
+    border: 1px solid rgb(35, 215, 219);
+    width: fit-content; 
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #0dbace;
+    color: black;
+}
+
+
+
+.form-bid{
+    width: fit-content;
+    margin-top: 10px;    
+}
+
+.command-area{
+    margin: 20px 0px 40px 0px;
+    width: 60%;
+    background-color: rgb(182, 214, 214);
+    border: 2px solid rgb(87, 85, 85);
+    border-radius: 10px;
+    padding-top: 20px;
+}
+
+
+.anker-red:hover, .anker-blue:hover, .anker-green:hover{
+    text-decoration: none;
+    color: #e5eef0;
+}
+
+.anker-red{
+    border: 2px solid rgb(240, 24, 24);
+    border-radius: 10px;
+    padding: 5px 5px 5px 5px;
+    background-color: rgb(240, 24, 24);
+    color: #e5eef0;
+}
+.anker-blue{
+    border: 2px solid rgb(5, 101, 245);
+    border-radius: 10px;
+    padding: 5px 5px 5px 5px;
+    background-color: rgb(5, 101, 245);
+    color: #e5eef0;
+}
+
+.anker-green{
+    border: 2px solid rgb(6, 156, 44);
+    border-radius: 10px;
+    padding: 5px 5px 5px 5px;
+    background-color: rgb(5, 156, 44);
+    color: #e5eef0;
+    
+}
+
+.watchlist{
+    margin: 2% 20% 0px 20%;
+    border: 1px solid black;
+    padding: 5px 0px 5px 15px;
+    border-radius: 15px;
+    background-color: rgb(210, 213, 216);
+}
+
+.anker-watchlist{
+    
+    padding: 5px 5px 5px 5px;
+    color: rgb(23, 85, 37);
+    font-size: larger;
+    
+}
+.anker-watchlist:hover{
+    text-decoration: none;
+    color: black;
+    
+}
+
+.category > a:hover{
+    text-decoration: none;
+    box-shadow: 0px 0px 2px 2px rgba(169, 198, 235, 0.959);
+}
+
+.category > a{
+    margin: 20px;
+    border: 1px solid rgb(59, 136, 243);
+    border-radius: 25px;
+    padding: 10px 20px 10px 20px;
+    background-color: #2778ea;
+    color: white;
+    font-size: larger;
+}

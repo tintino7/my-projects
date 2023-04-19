@@ -1,0 +1,35 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+
+<h2 style="margin-left: 2%;">{{ type }}</h2>
+
+    <div class="active-cards">
+    {% for listing in category %}
+        
+   <div class="card" style="width: 15rem; margin: 0px 2% 10px 2%;">
+    <img src="{{ listing.image_url }}" class="card-img-top" alt="no image" >
+    <div class="card-body">
+      <div style="display: flex; justify-content: space-between;">
+        <a href="{% url 'get_listing' listing.id %}" ><h5 style="color: black; font-size: medium;">{{ listing.title }}</h5> </a> 
+        {% for auction in auctions %}
+            {% if auction.listing == listing %}
+              <h6 style="margin-left: 10px; border: 1px solid rgb(18, 125, 247); border-radius: 10px; padding: 5px; background-color: rgb(6, 146, 247); color: white;">&#36; {{ auction.amount }}</h6>
+            {% endif %}
+        {% endfor %}
+        </div>
+      <p class="card-text">{{ listing.description }}</p>
+      {% if listing.active == True %}
+      <h6 style="color: rgb(3, 115, 3);">Active</h6>
+      {% else %}
+      <h6 style="color: rgb(216, 12, 12);">Closed</h6>
+      {% endif %}
+      
+    </div>
+  </div>
+    
+    
+    {% endfor %}
+</div>
+
+{% endblock %}

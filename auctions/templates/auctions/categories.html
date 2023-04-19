@@ -1,0 +1,12 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+<div style="display: flex; flex-wrap: wrap; justify-content: center; margin: 5% 5% 5% 5%;">
+    {% for category in categories %}
+    <div class="category" style="margin-top: 3%;">
+        <a href="{% url 'category' category.0 %}">{{ category.0 }}</a>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
