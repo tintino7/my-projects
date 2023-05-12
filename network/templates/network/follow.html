@@ -1,0 +1,83 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+
+<h3 style="margin: 5px 0px 5px 10px;">Following</h3>
+
+
+{% for post in posts %}
+    <div id="post-div">
+        
+        <div style="display: flex; justify-content: space-between;" id="grant-parent">
+            <h6><a href="{% url 'user' post.user.username %}">{{ post.user.username }}</a></h6>
+            <div id="parent">
+                <div id="content">   
+                    <p class="post-content">{{ post.content }}</p>
+                </div>
+                <div style="display: none;" id="content-edit">
+                    <form id="edit_form">
+                        <textarea rows="2" cols="100" name="edit_content" id="edited_content">{{ post.content }}</textarea>
+                        <input value="{{ post.id }}" name="post_id" type="hidden" id="post_id">
+                        <div>
+                            <button type="submit" class="edit-btn">Save changes</button>
+                        </div>    
+                    </form>
+                    <button class="cancel-btn" id="cancel">Close</button>    
+                </div>
+             </div>
+             <div>
+            {% if post.user == request.user %}
+            
+                <button class="edit-btn" id="edit" style="margin-left: 20px;">Edit</button>
+            
+            {% endif %}
+        </div>
+        </div>
+        
+        <div style="display: flex; justify-content: space-between;">
+            <div style="display: flex;">
+                {% if user.is_authenticated %}
+                    {% if request.user in post.like.all %}
+                    <img class="like"  id="like" data-post_id="{{ post.id }}" src="static/heart.png" alt="heart" width="20px" height="20px"  style="margin-top: 3px;">
+                    {% else %}
+                    <img class="like" id="unlike" data-post_id="{{ post.id }}"  src="static/heart1.png" alt="heart" width="20px" height="20px" style=" margin-top: 3px;" >
+                    {% endif %}
+                {% else %}
+                <img src="static/heart1.png" alt="heart" width="20px" height="20px" style=" margin-top: 3px;" >
+                {% endif %}
+                    <P id="like-count{{ post.id }}" style="margin:0px 0px 0px 3px;">{{ post.like.all|length }}</P>
+            </div>
+            
+            
+            <p>{{ post.date_time }}</p>
+        </div>
+        
+        
+    </div>
+{% endfor %}
+
+<div style="display: flex; justify-content: center;">
+    <div>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+            {% if previous_page >= 0 %}
+            <li class="page-item"><a class="page-link" href="{% url 'page' page_id=previous_page page_name='follow' %}">Previous</a></li>
+            {% endif %}
+            {% for num_page in num_pages %}
+
+            <li class="page-item"><a class="page-link" href="{% url 'page' page_id=num_page page_name='follow' %}">{{ num_page }}</a></li>
+            
+            {% endfor %}
+            {% if total_pages > next_page %}
+            <li class="page-item"><a class="page-link" href="{% url 'page' page_id=next_page page_name='follow' %}">Next</a></li>
+            {% endif %}
+            </ul>
+        </nav>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block script %}
+    <script src="static/network/index.js"></script>
+{% endblock %}
