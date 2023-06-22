@@ -1,6 +1,6 @@
-# Recipe finder
-#### Video Demo:  <https://youtu.be/tnbUOSEVCUw>
-#### Description:
+# THARMARAJAN
+#### Linkedin :  <https://www.linkedin.com/in/tharmarajan/>
+#### Leet code:
 It's a web based application for finding recipies by the main ingredient you have in your cupboard.
 
 I used [Meal db API](https://www.themealdb.com/api.php) for the data i needed for this project. It's __free API__ if you want some extra features or you want to make your site publicaly available you have join their supporter.
