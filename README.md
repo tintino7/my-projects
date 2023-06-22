@@ -1,6 +1,21 @@
-# THARMARAJAN
+Hi there, My name is Tharmarajan.
 #### Linkedin :  <https://www.linkedin.com/in/tharmarajan/>
-#### Leet code:
+#### Leet code : <https://leetcode.com/tharmarajan/>
+
+# CERTIFICATIONS
+## Harvard University's CS50 
+* CS50W CS50’s Web Programming with Python and JavaScript 
+* CS50x CS50's Introduction to Computer Science  <https://cs50.harvard.edu/certificates/4838719b-6e6f-4a28-b909-4494ac8078b0>
+
+
+
+
+
+
+
+
+
+
 It's a web based application for finding recipies by the main ingredient you have in your cupboard.
 
 I used [Meal db API](https://www.themealdb.com/api.php) for the data i needed for this project. It's __free API__ if you want some extra features or you want to make your site publicaly available you have join their supporter.
