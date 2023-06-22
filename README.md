@@ -1,4 +1,4 @@
-##Hi there, My name is Tharmarajan.
+## Hi there, My name is Tharmarajan.
 
 # CERTIFICATIONS
 ## Harvard University's CS50 
