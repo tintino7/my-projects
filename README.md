@@ -1,4 +1,4 @@
-Hi there, My name is Tharmarajan.
+##Hi there, My name is Tharmarajan.
 
 # CERTIFICATIONS
 ## Harvard University's CS50 
@@ -19,6 +19,8 @@ Hi there, My name is Tharmarajan.
 * Git
 * SQL
 * DSA
+
+### Each branch in my "My projects" repository represents a different project, showcasing my skills and progress.
 
 
 
